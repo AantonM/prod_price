@@ -7,6 +7,7 @@ CREATE TABLE prod_price.product
     id INT GENERATED ALWAYS AS IDENTITY,
     prod_name VARCHAR(100) NOT NULL,
     prod_desc VARCHAR(100),
+    scu INT UNIQUE,
     PRIMARY KEY (id)
 );
 
@@ -14,17 +15,17 @@ CREATE TABLE prod_price.price
 (
     id INT GENERATED ALWAYS AS IDENTITY,
     product_id INT NOT NULL REFERENCES prod_price.product(id),
-    date_from DATE NOT NULL,
+    date_from DATE NOT NULL CHECK (date_from <= date_to),
     date_to DATE NOT NULL CHECK (date_to >= date_from),
     price NUMERIC(10, 2) NOT NULL,
     PRIMARY KEY (id)
 );
 
-INSERT INTO prod_price.product(prod_name, prod_desc) VALUES ('pastet', '');
-INSERT INTO prod_price.product(prod_name, prod_desc) VALUES ('kompot', '');
-INSERT INTO prod_price.product(prod_name, prod_desc) VALUES ('sirene', '');
-INSERT INTO prod_price.product(prod_name, prod_desc) VALUES ('tarator', '');
-INSERT INTO prod_price.product(prod_name, prod_desc) VALUES ('bira', '');
+INSERT INTO prod_price.product(prod_name, prod_desc, scu) VALUES ('pastet', 'opisanie',12134);
+INSERT INTO prod_price.product(prod_name, prod_desc, scu) VALUES ('kompot', '',2543463);
+INSERT INTO prod_price.product(prod_name, prod_desc, scu) VALUES ('sirene', 'bla bla',876543);
+INSERT INTO prod_price.product(prod_name, prod_desc, scu) VALUES ('tarator', '',234234 );
+INSERT INTO prod_price.product(prod_name, prod_desc, scu) VALUES ('bira', 'shumensko', 54523423);
 
 INSERT INTO prod_price.price(product_id, date_from, date_to, price) VALUES (1, '2020-05-30', '2020-06-30', 12.54);
 INSERT INTO prod_price.price(product_id, date_from, date_to, price) VALUES (1, '2020-05-01', '2020-05-30', 25.99);

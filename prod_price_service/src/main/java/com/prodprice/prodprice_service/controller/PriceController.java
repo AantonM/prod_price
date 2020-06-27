@@ -1,15 +1,19 @@
 package com.prodprice.prodprice_service.controller;
 
 import com.prodprice.prodprice_service.domain.dto.PriceDTO;
+import com.prodprice.prodprice_service.domain.dto.ProductDTO;
 import com.prodprice.prodprice_service.domain.entity.Price;
+import com.prodprice.prodprice_service.domain.entity.Product;
 import com.prodprice.prodprice_service.service.PriceService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/price")
+@RequestMapping("/product/{productId}")
 public class PriceController
 {
   private final PriceService priceService;
@@ -19,10 +23,10 @@ public class PriceController
     this.priceService = priceService;
   }
 
-  @GetMapping(value = "/{id}", produces = "application/json", params = {"page", "size", "sortBy", "type"})
+  @GetMapping(value = "/price", produces = "application/json")
   @ResponseStatus(HttpStatus.OK)
-  public @ResponseBody Page<PriceDTO> getProductPrices(@PathVariable Long id, @RequestParam("page") int page, @RequestParam("size") int size, @RequestParam("sortBy") String sortBy, @RequestParam("type") String sortType)
+  public @ResponseBody List<PriceDTO> getProductPrices(@PathVariable Long productId)
   {
-    return priceService.getProductPrices(id, page, size, sortBy, sortType);
+    return priceService.getProductPrices(productId);
   }
 }

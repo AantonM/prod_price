@@ -1,0 +1,39 @@
+# -----------------------
+# DEFAULT CONNECTION POOL
+# -----------------------
+spring:
+  datasource:
+    hikari:
+      connection-timeout: 20000
+      maximumPoolSize: 5
+    # -----------------------
+    # POSTGRESQL DATABASE CONFIGURATION
+    # -----------------------
+    url: jdbc:postgresql://localhost:5434/postgres
+    username: postgres
+    password: password
+  # -----------------------
+  # JPA properties
+  # -----------------------
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults=true: true
+
+# -----------------------
+# DISABLE TRACE IN RESPONSE
+# -----------------------
+server:
+  error:
+    include-stacktrace: never
+
+# -----------------------
+# APPLICTION AUTHENTICATION
+# -----------------------
+basic:
+  auth:
+    username: admin
+    password: password
