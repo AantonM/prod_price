@@ -23,7 +23,7 @@ public class ProductController
     @GetMapping(value = "/{id}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
-    List<ProductDTO> getProduct(@PathVariable Long id)
+    ProductDTO getProduct(@PathVariable Long id)
     {
         return productService.getProduct(id);
     }

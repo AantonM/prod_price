@@ -1,18 +1,15 @@
 package com.prodprice.prodprice_service.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(schema = "prod_price", name = "price")
 public class Price
@@ -30,22 +27,24 @@ public class Price
     @Setter
     private Product product_owner;
 
-    @NotNull
+    @NonNull
     @Getter
     @Setter
     private Date date_from;
 
-    @NotNull
+    @NonNull
     @Getter
     @Setter
     private Date date_to;
 
     @Getter
     @Setter
+    @NonNull
     BigDecimal price;
 
-    @AssertTrue (message= "The from date should be before the to date.")
-    private boolean isDateFromBeforeDateTo() {
+    @AssertTrue(message = "The from date should be before the to date.")
+    private boolean isDateFromBeforeDateTo()
+    {
         return date_from.before(date_to);
     }
 }

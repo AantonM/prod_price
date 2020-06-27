@@ -1,17 +1,14 @@
 package com.prodprice.prodprice_service.domain.entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
 @RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(schema = "prod_price", name = "product")
 public class Product
@@ -22,7 +19,7 @@ public class Product
     @Setter
     private Long id;
 
-    @NotNull
+    @NonNull
     @Size(min = 3, max = 100, message = "Product name should be min 3 characters long and maximum of 100 chars.")
     @Getter
     @Setter
@@ -33,7 +30,7 @@ public class Product
     @Setter
     private String prod_desc;
 
-    @NotNull
+    @NonNull
     @OneToMany(mappedBy = "product_owner", fetch = FetchType.LAZY)
     @Getter
     @Setter
@@ -41,5 +38,6 @@ public class Product
 
     @Getter
     @Setter
+    @NonNull
     private int scu;
 }

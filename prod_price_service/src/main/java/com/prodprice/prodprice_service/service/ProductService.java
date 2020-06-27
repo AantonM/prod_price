@@ -7,5 +7,5 @@ import java.util.List;
 public interface ProductService
 {
 
-    List<ProductDTO> getProduct(Long productId);
+    ProductDTO getProduct(Long productId);
 }

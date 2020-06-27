@@ -10,9 +10,8 @@ import java.util.List;
 @Data
 public class ProductDTO
 {
-    private Long id;
     private String prod_name;
     private String prod_desc;
-    private List<Price> prices;
+    private List<PriceDTO> prices;
     private int scu;
 }
