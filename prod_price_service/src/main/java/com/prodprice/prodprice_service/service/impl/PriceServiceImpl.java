@@ -3,6 +3,8 @@ package com.prodprice.prodprice_service.service.impl;
 import com.prodprice.prodprice_service.dao.PriceRepository;
 import com.prodprice.prodprice_service.dao.ProductRepository;
 import com.prodprice.prodprice_service.domain.dto.PriceDTO;
+import com.prodprice.prodprice_service.domain.dto.ProductDTO;
+import com.prodprice.prodprice_service.domain.entity.Product;
 import com.prodprice.prodprice_service.service.PriceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
