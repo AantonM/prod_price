@@ -66,4 +66,23 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <arguments>
+                        <argument>--server.port=8080</argument>
+                        <argument>--spring.datasource.url=jdbc:postgresql://localhost:5433/postgres</argument>
+                        <argument>--spring.datasource.username=postgres</argument>
+                        <argument>--spring.datasource.password=password</argument>
+                        <argument>--basic.auth.username=admin</argument>
+                        <argument>--basic.auth.password=password</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
