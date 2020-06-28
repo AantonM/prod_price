@@ -11,6 +11,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.stream.Collectors;
 
+/**
+ * Product service layer. Provides the ability to work with prices.
+ */
 @Service
 @Slf4j
 public class ProductServiceImpl implements ProductService
@@ -18,11 +21,22 @@ public class ProductServiceImpl implements ProductService
 
     ProductRepository productRepository;
 
+    /**
+     * Construct product service.
+     *
+     * @param productRepository a product repository.
+     */
     ProductServiceImpl(ProductRepository productRepository)
     {
         this.productRepository = productRepository;
     }
 
+    /**
+     * Get the product corresponding to the provided id.
+     *
+     * @param productId the product id.
+     * @return the product that corresponds to the provided id.
+     */
     @Override
     public ProductDTO getProduct(Long productId)
     {
