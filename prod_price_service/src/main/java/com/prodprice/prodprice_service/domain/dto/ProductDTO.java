@@ -1,6 +1,5 @@
 package com.prodprice.prodprice_service.domain.dto;
 
-import com.prodprice.prodprice_service.domain.entity.Price;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
